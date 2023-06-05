@@ -1,0 +1,221 @@
+/*
+    General Styles
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #865DFF, #FFA3FD);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+.container {
+  
+  display: inline-block;
+  text-align: center;
+  width: 70%;
+  height:auto;
+  padding: 30px 60px 30px 40px;
+  border: 8px solid #DD58D6;
+  border-radius: 30px;
+
+  background: #F6F1E9;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+}
+
+.dicer {
+  align-self: center;
+  text-align: center;
+  display: inline-block;
+  padding: 60px 60px 60px;
+  
+}
+
+h1{
+
+  font-family:monospace;
+  font-size: 60px;
+  color: #9336B4;
+  padding: 10px 10px 10px 10px ;
+}
+
+h1:hover{
+  background-clip:content-box;
+  background-color: #9336B4;
+  padding: 10px 10px 10px 10px ;
+  color: #F6F1E9;
+  transition: ease 1s;
+}
+
+p{
+  font-family:monospace;
+  font-size: 30px;
+}
+
+
+/*
+  Dice Styles
+*/
+
+.dice {
+  position: centre;
+  width: 100px;
+  height: 100px;
+  transform-style: preserve-3d;
+  transition: 0.1s ease;
+
+}
+
+@keyframes rolling {
+  50% {
+      transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  
+  transform-style: preserve-3d;
+  background: linear-gradient(
+      145deg, #dddbd8, #fff
+  );
+}
+
+.face::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  
+  transform: translateZ(-1px);
+}
+
+.face::after {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #131210;
+}
+
+.front {
+  transform: translateZ(50px);
+}
+
+.back {
+  transform: rotateX(180deg) translateZ(50px);
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ(50px);
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.left {
+  transform: rotateY(-90deg) translateZ(50px);
+}
+
+.front::after {
+  width: 30px;
+  height: 30px;
+  background: #9336B4;
+  margin: -15px 0 0 -15px;
+}
+
+.back::after {
+  margin: -35px 0 0 -30px;
+  box-shadow: 40px 0,
+              0 25px,
+              40px 25px,
+              0 50px,
+              40px 50px;
+}
+
+.top::after {
+  margin: -30px 0 0 -30px;
+  box-shadow: 40px 40px;
+}
+
+.bottom::after {
+  margin: -36px 0 0 -36px;
+  box-shadow: 26px 26px,
+              52px 52px,
+              52px 0,
+              0 52px;
+}
+
+.right::after {
+  margin: -30px 0 0 -30px;
+  box-shadow: 40px 0,
+  0 40px,
+  40px 40px;
+}
+
+.left::after {
+  margin: -35px 0 0 -35px;
+  box-shadow: 25px 25px,
+              50px 50px;
+}
+
+/*
+  Roll Button styles
+*/
+
+.roll {
+  cursor: pointer;
+  color: #9336B4;
+  margin-top: 30px;
+  padding: 12px 12px;
+  border-radius: 3px;
+  font: 700 30px 'Montserrat';
+  border: 2px solid #9336B4;
+  box-shadow: inset;
+  transition: .4s;
+}
+
+.roll:hover {
+  color: #fff;
+  background: #9336B4;
+}
+
